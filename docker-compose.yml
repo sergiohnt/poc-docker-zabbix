@@ -56,7 +56,7 @@ services:
       - zabbix-network
     depends_on:
       - db
-      - zabbix-server
+      - zabbixserver
 
 secrets:
    db_password:
