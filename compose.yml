@@ -8,9 +8,10 @@ networks:
   zabbix-network:
     driver: bridge
 
+db_user: zabbix_db_admin
+db_password: /run/secrets/db_password
+
 services:
-  db_user: zabbix_db_admin
-  db_password: /run/secrets/db_password
   db:
     container_name: mariadb
     image: mariadb:latest
