@@ -7,7 +7,7 @@ services:
     restart: always
     environment:
       - MARIADB_ROOT_PASSWORD=P@ssw0rD
-      - MARIADB_USER=zabbix_db_admin
+      - MARIADB_USER=zabbix
       - MARIADB_PASSWORD=zxc*963
     secrets:
       - db_root_password
@@ -23,7 +23,7 @@ services:
     restart: always
     environment:
       - DB_SERVER_HOST=db
-      - MYSQL_USER=zabbix_db_admin
+      - MYSQL_USER=zabbix
       - MYSQL_PASSWORD=zxc*963
     secrets:
       - db_root_password
@@ -42,7 +42,7 @@ services:
     restart: always
     environment:
       - DB_SERVER_HOST=mariadb
-      - MYSQL_USER=zabbix_db_admin
+      - MYSQL_USER=zabbix
       - MYSQL_PASSWORD=zxc*963
       - ZBX_SERVER_HOST=zabbix
       - PHP_TZ:=America/Sao_Paulo
