@@ -1,12 +1,13 @@
+
 services:
   db:
     container_name: mariadb
     image: mariadb:latest
     restart: always
     environment:
-      - MARIADB_ROOT_PASSWORD=/run/secrets/db_root_password
-      - MARIADB_USER:=zabbix_db_admin
-      - MARIADB_PASSWORD=/run/secrets/db_password
+      - MARIADB_ROOT_PASSWORD_FILE=/run/secrets/db_root_password
+      - MARIADB_USER=zabbix_db_admin
+      - MARIADB_PASSWORD_FILE=/run/secrets/db_password
     secrets:
       - db_root_password
       - db_password
@@ -22,7 +23,7 @@ services:
     environment:
       - DB_SERVER_HOST=db
       - MYSQL_USER=zabbix_db_admin
-      - MYSQL_PASSWORD=/run/secrets/db_password
+      - MYSQL_PASSWORD_FILE=/run/secrets/db_password
     secrets:
       - db_root_password
       - db_password
@@ -41,7 +42,7 @@ services:
     environment:
       - DB_SERVER_HOST=db
       - MYSQL_USER=zabbix_db_admin
-      - MYSQL_PASSWORD="{{ db_password }}"
+      - MYSQL_PASSWORD_FILE="{{ db_password }}"
       - ZBX_SERVER_HOST=zabbix-server
       - PHP_TZ:=America/Sao_Paulo
     secrets:
