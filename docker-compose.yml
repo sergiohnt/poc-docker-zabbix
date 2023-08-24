@@ -17,9 +17,9 @@ services:
     networks:
       - zabbix-network
   
-  zabbixserver:
+  zabbix-server:
     container_name: zabbix
-    image: zabbix-server-mysql:alpine:latest
+    image: zabbix/zabbix-server-mysql:latest
     restart: always
     environment:
       - DB_SERVER_HOST=db
@@ -36,14 +36,14 @@ services:
     depends_on:
       - db
 
-  zabbixfrontend:
+  zabbix-frontend:
     container_name: zabix-nginx
-    image: zabbix-web-nginx-mysql:alpine:latest
+    image: zabbix/zabbix-web-nginx-mysql:latest
     restart: always
     environment:
       - DB_SERVER_HOST=db
       - MYSQL_USER=zabbix_db_admin
-      - MYSQL_PASSWORD_FILE="{{ db_password }}"
+      - MYSQL_PASSWORD_FILE=/run/secrets/db_password
       - ZBX_SERVER_HOST=zabbix-server
       - PHP_TZ:=America/Sao_Paulo
     secrets:
@@ -56,7 +56,7 @@ services:
       - zabbix-network
     depends_on:
       - db
-      - zabbixserver
+      - zabbix-server
 
 secrets:
    db_password:
