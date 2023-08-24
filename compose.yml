@@ -46,7 +46,7 @@ services:
 
   zabbix-frontend:
     container_name: zabix-nginx
-    image: imageNamezabbix-web-nginx-mysql:alpine:latest
+    image: zabbix-web-nginx-mysql:alpine:latest
     restart: always
     environment:
       - DB_SERVER_HOST=db
