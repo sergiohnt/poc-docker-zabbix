@@ -41,10 +41,10 @@ services:
     image: zabbix/zabbix-web-nginx-mysql:latest
     restart: always
     environment:
-      - DB_SERVER_HOST=db
+      - DB_SERVER_HOST=mariadb
       - MYSQL_USER=zabbix_db_admin
       - MYSQL_PASSWORD_FILE=/run/secrets/db_password
-      - ZBX_SERVER_HOST=zabbix-server
+      - ZBX_SERVER_HOST=zabbix
       - PHP_TZ:=America/Sao_Paulo
     secrets:
       - db_root_password
