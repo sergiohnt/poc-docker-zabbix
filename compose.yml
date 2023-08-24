@@ -51,7 +51,7 @@ services:
     image: imageNamezabbix-web-nginx-mysql:alpine:latest
     restart: always
     environment:
-      - DB_SERVER_HOST: db
+      - DB_SERVER_HOST=db
       - MYSQL_USER="{{ db_user }}"
       - MYSQL_PASSWORD="{{ db_password }}"
       - ZBX_SERVER_HOST=zabbix-server
