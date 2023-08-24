@@ -17,7 +17,7 @@ services:
     networks:
       - zabbix-network
   
-  zabbix-server:
+  zabbixserver:
     container_name: zabbix
     image: zabbix-server-mysql:alpine:latest
     restart: always
@@ -36,7 +36,7 @@ services:
     depends_on:
       - db
 
-  zabbix-frontend:
+  zabbixfrontend:
     container_name: zabix-nginx
     image: zabbix-web-nginx-mysql:alpine:latest
     restart: always
