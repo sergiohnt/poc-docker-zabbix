@@ -55,7 +55,7 @@ services:
       - MYSQL_USER: "{{ db_user }}"
       - MYSQL_PASSWORD: "{{ db_password }}"
       - ZBX_SERVER_HOST: zabbix-server
-      - PHP_TZ: America/Sao_Paulo
+      - PHP_TZ: "America/Sao_Paulo"
     secrets:
       - db_root_password
       - db_password
