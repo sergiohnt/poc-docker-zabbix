@@ -8,9 +8,6 @@ networks:
   zabbix-network:
     driver: bridge
 
-db_user: zabbix_db_admin
-db_password: /run/secrets/db_password
-
 services:
   db:
     container_name: mariadb
@@ -18,8 +15,8 @@ services:
     restart: always
     environment:
       - MARIADB_ROOT_PASSWORD=/run/secrets/db_root_password
-      - MARIADB_USER:="{{ db_user }}"
-      - MARIADB_PASSWORD="{{ db_password }}"
+      - MARIADB_USER:=zabbix_db_admin
+      - MARIADB_PASSWORD=/run/secrets/db_password
     secrets:
       - db_root_password
       - db_password
@@ -34,8 +31,8 @@ services:
     restart: always
     environment:
       - DB_SERVER_HOST=db
-      - MYSQL_USER="{{ db_user }}"
-      - MYSQL_PASSWORD="{{ db_password }}"
+      - MYSQL_USER=zabbix_db_admin
+      - MYSQL_PASSWORD=/run/secrets/db_password
     secrets:
       - db_root_password
       - db_password
@@ -53,7 +50,7 @@ services:
     restart: always
     environment:
       - DB_SERVER_HOST=db
-      - MYSQL_USER="{{ db_user }}"
+      - MYSQL_USER=zabbix_db_admin
       - MYSQL_PASSWORD="{{ db_password }}"
       - ZBX_SERVER_HOST=zabbix-server
       - PHP_TZ:=America/Sao_Paulo
