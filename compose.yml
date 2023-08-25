@@ -2,14 +2,14 @@
 services:
   mysql:
     container_name: mysql
-    image: arm64v8/mysql:8.0
+    image: arm64v8/mariadb:10.5
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_bin 
     #'zcat /usr/share/doc/zabbix-server-mysql-7.0/create.sql.gz | mysql zabbix -uzabbix -pzxc*963'
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: P@ssw0rD
-      MYSQL_USER: zabbix
-      MYSQL_PASSWORD: zxc*963
+      MARIADB_ROOT_PASSWORD: P@ssw0rD
+      MARIADB_USER: zabbix
+      MARIADB_PASSWORD: zxc*963
       #MYSQL_DATABASE: zabbix
     secrets:
       - db_root_password
