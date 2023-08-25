@@ -2,13 +2,13 @@
 version: '3.5'
 services:
   db:
-    container_name: mariadb
-    image: mariadb:latest
+    container_name: mysql
+    image: mysql:latest
     restart: always
     environment:
-      - MARIADB_ROOT_PASSWORD=P@ssw0rD
-      - MARIADB_USER=zabbix
-      - MARIADB_PASSWORD=zxc*963
+      - MYSQL_ROOT_PASSWORD=P@ssw0rD
+      - MYSQL_USER=zabbix
+      - MYSQL_PASSWORD=zxc*963
     secrets:
       - db_root_password
       - db_password
@@ -41,7 +41,7 @@ services:
     image: zabbix/zabbix-web-nginx-mysql:latest
     restart: always
     environment:
-      - DB_SERVER_HOST=mariadb
+      - DB_SERVER_HOST=mysql
       - MYSQL_USER=zabbix
       - MYSQL_PASSWORD=zxc*963
       - ZBX_SERVER_HOST=zabbix
