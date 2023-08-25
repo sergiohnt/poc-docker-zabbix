@@ -21,7 +21,7 @@ services:
   
   zabbix-server:
     container_name: zabbix-server
-    image: zabbix/zabbix-server-mysql:alpine-6.4-latest
+    image: zabbix/zabbix-server-mysql:ubuntu-6.4-latest
     restart: always
     environment:
       DB_SERVER_HOST: mysql
