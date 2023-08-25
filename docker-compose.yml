@@ -1,14 +1,13 @@
 
-version: '3.5'
 services:
   db:
     container_name: mysql
     image: mysql:latest
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD="P@ssw0rD"
-      - MYSQL_USER:"zabbix"
-      - MYSQL_PASSWORD:"zxc*963"
+      MYSQL_ROOT_PASSWORD: P@ssw0rD
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zxc*963
     secrets:
       - db_root_password
       - db_password
@@ -22,9 +21,9 @@ services:
     image: zabbix/zabbix-server-mysql:latest
     restart: always
     environment:
-      - DB_SERVER_HOST=mysql
-      - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD=zxc*963
+      DB_SERVER_HOST: mysql
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zxc*963
     secrets:
       - db_root_password
       - db_password
@@ -41,11 +40,11 @@ services:
     image: zabbix/zabbix-web-nginx-mysql:latest
     restart: always
     environment:
-      - DB_SERVER_HOST=mysql
-      - MYSQL_USER=zabbix
-      - MYSQL_PASSWORD=zxc*963
-      - ZBX_SERVER_HOST=zabbix
-      - PHP_TZ:=America/Sao_Paulo
+      DB_SERVER_HOST: mysql
+      MYSQL_USER: zabbix
+      MYSQL_PASSWORD: zxc*963
+      ZBX_SERVER_HOST: zabbix
+      PHP_TZ: America/Sao_Paulo
     secrets:
       - db_root_password
       - db_password
