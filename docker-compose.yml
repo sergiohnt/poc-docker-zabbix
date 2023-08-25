@@ -8,6 +8,7 @@ services:
       MYSQL_ROOT_PASSWORD: P@ssw0rD
       MYSQL_USER: zabbix
       MYSQL_PASSWORD: zxc*963
+      MYSQL_DATABASE: zabbix
     secrets:
       - db_root_password
       - db_password
