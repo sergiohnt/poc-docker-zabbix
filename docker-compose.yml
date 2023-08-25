@@ -38,7 +38,7 @@ services:
 
   zabbix-frontend:
     container_name: zabbix-frontend
-    image: zabbix/zabbix-web-nginx-mysql:latest
+    image: zabbix/zabbix-web-apache-mysql:latest
     restart: always
     environment:
       DB_SERVER_HOST: mysql
@@ -49,9 +49,6 @@ services:
     secrets:
       - db_root_password
       - db_password
-    ports:
-      - 80:8080
-      - 443:8443
     networks:
       - zabbix-network
     depends_on:
