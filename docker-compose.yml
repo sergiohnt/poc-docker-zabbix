@@ -46,6 +46,9 @@ services:
       MYSQL_PASSWORD: zxc*963
       ZBX_SERVER_HOST: zabbix-server
       PHP_TZ: America/Sao_Paulo
+    ports:
+      - 80:8080
+      - 443:8443
     secrets:
       - db_root_password
       - db_password
