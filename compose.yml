@@ -2,7 +2,7 @@
 services:
   mysql:
     container_name: mysql
-    image: mysql:5.7.42-debian
+    image: arm64v8/mysql:latest
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: P@ssw0rD
