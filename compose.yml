@@ -67,7 +67,7 @@ services:
     container_name: grafana
     image: grafana/grafana
     networks:
-      - network-zabbix
+      - zabbix-network
     restart: always
     ports:
       - '3000:3000'
@@ -82,7 +82,7 @@ services:
     image: zabbix/zabbix-agent2:alpine-5.0.1
     user: root
     networks:
-      - network-zabbix
+      - zabbix-network
     restart: always
     privileged: true
     volumes:
