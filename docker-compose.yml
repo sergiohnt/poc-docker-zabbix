@@ -6,9 +6,9 @@ services:
     image: mysql:latest
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD: P@ssw0rD
-      - MYSQL_USER: zabbix
-      - MYSQL_PASSWORD: zxc*963
+      - MYSQL_ROOT_PASSWORD="P@ssw0rD"
+      - MYSQL_USER:"zabbix"
+      - MYSQL_PASSWORD:"zxc*963"
     secrets:
       - db_root_password
       - db_password
