@@ -3,8 +3,7 @@ services:
   mysql:
     container_name: mysql
     image: arm64v8/mysql:latest
-    command: 
-      - make dbschema 
+    command: --character-set-server=utf8mb4 --collation-server=utf8mb4_bin 'zcat /usr/share/doc/zabbix-server-mysql-3.4.4/create.sql.gz | mysql zabbix -uzabbix -p'
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: P@ssw0rD
