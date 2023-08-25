@@ -2,7 +2,7 @@
 services:
   mysql:
     container_name: mysql
-    image: arm64v8/mariadb:10.5
+    image: arm64v8/mariadb:latest
     command: --character-set-server=utf8mb4 --collation-server=utf8mb4_bin 
     #'zcat /usr/share/doc/zabbix-server-mysql-7.0/create.sql.gz | mysql zabbix -uzabbix -pzxc*963'
     restart: always
@@ -23,7 +23,7 @@ services:
   
   zabbix-server:
     container_name: zabbix-server
-    image: zabbix/zabbix-server-mysql:alpine-6.2-latest
+    image: zabbix/zabbix-server-mysql:latest
     restart: always
     environment:
       DB_SERVER_HOST: mysql
