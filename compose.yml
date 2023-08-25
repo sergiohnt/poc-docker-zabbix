@@ -3,12 +3,16 @@ services:
   mysql:
     container_name: mysql
     image: arm64v8/mysql:latest
+    command: 
+      - make dbschema 
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_bin
     restart: always
     environment:
       MYSQL_ROOT_PASSWORD: P@ssw0rD
       MYSQL_USER: zabbix
       MYSQL_PASSWORD: zxc*963
-      #MYSQL_DATABASE: zabbix
+      MYSQL_DATABASE: zabbix
     secrets:
       - db_root_password
       - db_password
@@ -38,7 +42,7 @@ services:
 
   zabbix-frontend:
     container_name: zabbix-frontend
-    image: zabbix/zabbix-web-apache-mysql:latest
+    image: zabbix/zabbix-web-nginx-mysql:latest
     restart: always
     environment:
       DB_SERVER_HOST: mysql
